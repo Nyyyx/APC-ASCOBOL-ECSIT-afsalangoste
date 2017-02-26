@@ -19,7 +19,7 @@
        DATA DIVISION.
        WORKING-STORAGE SECTION.
        01 StudentDetails.
-          02  StudentId       PIC 99(10).
+          02  StudentId       PIC 99(9).
           02  StudentName.
               03 Surname      PIC X(10).
               03 Initials     PIC XX.
@@ -49,7 +49,7 @@
        Begin.
        DISPLAY "Enter student details using template below".
        DISPLAY "Enter - ID,Surname,Initials,CourseCode,Gender"
-       DISPLAY "SSSSSSSNNNNNNNNIICCCCG".
+       DISPLAY "SSSSSSSSSSNNNNNNNNNNIICCCCCCGGGGGG".
        ACCEPT  StudentDetails.
        ACCEPT  CurrentDate FROM DATE YYYYMMDD.
        ACCEPT  DayOfYear FROM DAY YYYYDDD.
