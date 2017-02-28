@@ -17,7 +17,7 @@
        DATA DIVISION.
        FILE SECTION.
        FD StudentFile.
-       01 StudentDetails      PIC X(30).
+       01 StudentDetails      PIC X(40).
        * The StudentDetails record has the description shown below.
        * But in this program we don't need to refer to any of the items in
        * the record and so we have described it as PIC X(32)
@@ -35,8 +35,8 @@
 
        SD WorkFile.
        01 WorkRec.
-           02 WStudentId       PIC 9(7).
-           02 FILLER           PIC X(23).
+           02 WStudentId       PIC 9(10).
+           02 FILLER           PIC X(32).
 
        PROCEDURE DIVISION.
        Begin.
