@@ -69,7 +69,7 @@
 
        01  FILLER                      PIC  X(64).
        01  Aromamora-Header.
-           02  FILLER                  PIC X(14).
+           02  FILLER                  PIC X(14) VALUE SPACES.
            02  Header-Title            PIC X(30)
            VALUE "AROMAMORA SUMMARY SALES REPORT".
        01  Header-LineBreak.
@@ -89,9 +89,59 @@
            02  Quantity-Sold           PIC X(8)   VALUE "QTY SOLD".
            02  FILLER                  PIC X(3).
            02  Sales-Value             PIC X(11)  VALUE "SALES VALUE".
+       01  FILLER                      PIC X(64).
+
+       01  Customer-Sales-Line.
+           02  cslCustomer-Name        PIC X(20) VALUE ALL "x".
+           02  cslCustomer-ID          PIC BBB9(5).
+           02  cslSales                PIC BBBBBZZ9.
+           02  cslQuantity-Sold        PIC BBBBBZZ,ZZZ9.
+           02  cslSales-Value          PIC BBBB$$$,$$9.99.
+
+       01  Total-Sales-Line.
+           02  FILLER                  PIC X(33).
+           02  FILLER                  PIC X(19)
+           VALUE "TOTAL SALES       :".
+           02  tslTotal-Sales          PIC BBBBBBZZ,ZZ9.
+
+       01  Total-Quantity-Sold-Line.
+           02  FILLER                  PIC X(33).
+           02  FILLER                  PIC X(19)
+           VALUE "TOTAL QTY SOLD    :".
+           02  tslQuantity-Sold        PIC BBBBBZZZ,ZZ9.
+
+       01  Total-Sales-Value-Line.
+           02  FILLER                  PIC X(33).
+           02  FILLER                  PIC X(19)
+           VALUE "TOTAL SALES VALUE :".
+           02  tslSales-Value          PIC B$$$$,$$9.99.
+
+       01  Customer-Totals.
+           02  ctSales                 PIC 999.
+           02  ctQuantity-Sold         PIC 9(6).
+           02  ctSales-Value           PIC 9(6)V99.
+
+       01  Final-Totals.
+           02  ftSales                 PIC 9(6).
+           02  ftQuantity-Sold         PIC 9(7).
+           02  ftSales-Value           PIC 9(6)V99.
+
+       01  Temp-Sales-Details.
+           02  tempQuantity-Sold       PIC 9(6).
+           02  tempSales-Value         PIC 9(6)V99.
+           02  tempCustomer-ID         PIC X(7).
 
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
-            DISPLAY "Hello world"
-            STOP RUN.
+           DISPLAY Aromamora-Header.
+           DISPLAY Header-LineBreak.
+           DISPLAY Details.
+           DISPLAY Customer-Sales-Line.
+           DISPLAY Total-Sales-Line.
+           DISPLAY Total-Quantity-Sold-Line.
+           DISPLAY Total-Sales-Value-Line.
+           DISPLAY Customer-Totals.
+           DISPLAY Final-Totals.
+           DISPLAY Temp-Sales-Details.
+           STOP RUN.
        END PROGRAM AromaSalesRpt.
