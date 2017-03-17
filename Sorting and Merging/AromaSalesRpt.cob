@@ -144,4 +144,15 @@
            DISPLAY Final-Totals.
            DISPLAY Temp-Sales-Details.
            STOP RUN.
+
+       Begin.
+           SORT Work-File ON ASCENDING KEY wfCustomer-ID
+           INPUT PROCEDURE IS input-placeholder-name
+           OUTPUT PROCEDURE IS output-placeholder-name.
+           STOP RUN.
+
+       input-placeholder-name.
+
+       output-placeholder-name.
+
        END PROGRAM AromaSalesRpt.
